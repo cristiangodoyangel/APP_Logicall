@@ -15,18 +15,21 @@ Este proyecto es parte de una aplicación web para la gestión de inventario y c
 
 ---
 
-## 📊 Tabla de Avances
 
-| Módulo                   | Estado  | Descripción                                                                 |
-|--------------------------|---------|-----------------------------------------------------------------------------|
-| Configuración de entorno | ✅      | Proyecto Django con entorno virtual activo                                 |
-| Modelo de datos          | ✅      | Modelos para Producto, Salida y DetalleSalida                              |
-| Panel Admin              | ✅      | Visualización y gestión en Django Admin                                    |
-| API de Productos         | ✅      | CRUD completo usando DRF                                                   |
-| API de Salidas           | ✅      | Endpoints para crear y listar salidas de bodega                            |
-| API de Detalles de salida| ✅      | Endpoints para agregar detalles por producto y salida                      |
-| Pruebas desde DRF UI     | ✅      | Validación de endpoints funcionando correctamente desde navegador          |
-| Documentación inicial    | ✅      | Archivo README con resumen del backend                                     |
+
+## 🚧 Avances del Proyecto
+
+| Módulo        | Tarea Realizada                                              | Estado     | Comentario |
+|---------------|--------------------------------------------------------------|------------|------------|
+| Backend (Django) | Configuración del proyecto y base de datos SQL Server      | ✅ Listo    | Uso de ODBC Driver 17 |
+| Backend (Django) | Creación de modelos: Producto, SalidaBodega, DetalleSalida | ✅ Listo    | Incluye campos clave del inventario |
+| Backend (API) | API REST con Django REST Framework para productos y salidas  | ✅ Listo    | Listado y creación disponibles |
+| Backend | Configuración de CORS para conexión con frontend                    | ✅ Listo    | Uso de `django-cors-headers` |
+| Frontend (React) | Inicialización con Vite + Bootstrap                         | ✅ Listo    | Compatible con SPA |
+| Frontend (React) | Creación de vista de tabla de productos                     | ✅ Listo    | Diseño inspirado en inventario original |
+| Frontend | Estilos adaptados con Bootstrap y variables propias (`.btn-orange`) | ✅ Listo    | Interfaz consistente con sistema actual |
+| Frontend | Integración parcial con API (simulación de datos por ahora)        | 🔜 En curso | Pendiente uso de `axios` |
+| General | Estructura de carpetas separadas: `frontend/` y `backend/`          | ✅ Listo    | Organización clara del proyecto |
 
 ---
 
@@ -50,6 +53,7 @@ POST /api/detalles/ # Crear detalle de salida
 - SQLite (por ahora)
 
 ---
+
 
 
 
