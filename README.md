@@ -51,6 +51,7 @@ POST /api/detalles/ # Crear detalle de salida
 
 ---
 
-¿Listo para avanzar con el frontend React? Te puedo armar también su `README.md` cuando lo inicies.
+
+
 
 
