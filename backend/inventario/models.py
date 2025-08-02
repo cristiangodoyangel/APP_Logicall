@@ -28,3 +28,22 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.NombreTecnico
+
+class SalidaBodega(models.Model):
+    ID = models.AutoField(primary_key=True)
+    Fecha = models.DateTimeField(auto_now_add=True)
+    Solicitante = models.CharField(max_length=255)
+    ResponsableEntrega = models.CharField(max_length=255)
+    Proyecto = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f'Salida {self.ID} - {self.Solicitante}'
+
+
+class DetalleSalida(models.Model):
+    salida = models.ForeignKey(SalidaBodega, on_delete=models.CASCADE, related_name='detalles')
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.producto.NombreTecnico} x {self.cantidad}'
