@@ -1,41 +1,36 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+:root {
+  --color-primario: #073572;
+  --color-secundario: #5ce1e6;
+  --color-terciario: #dddddd;
 }
 
-header {
-  padding: 10px 30px;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--color-terciario);
+  margin: 0;
 }
 
 img {
   max-height: 40px;
 }
 
-.btn-orange {
-  background-color: #f06529 !important;
-  border-color: #f06529 !important;
+.btn-primario {
+  background-color: var(--color-primario) !important;
+  border-color: var(--color-primario) !important;
   color: white !important;
 }
 
-.btn-orange:hover {
-  background-color: #d9531e !important;
-  border-color: #d9531e !important;
+.btn-primario:hover {
+  background-color: #05275a !important;
+  border-color: #05275a !important;
 }
 
-.bg-orange {
-  background-color: #f06529 !important;
+.bg-primario {
+  background-color: var(--color-primario) !important;
 }
 
-.footer {
-  background-color: #444;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  margin-top: auto;
+.bg-terciario {
+  background-color: var(--color-terciario) !important;
 }
 
 .table td,
@@ -47,10 +42,25 @@ td img {
   max-height: 40px;
 }
 
-.container {
-  background: white;
-  padding: 30px;
-  margin-top: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.table-responsive {
+  width: 100%;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
