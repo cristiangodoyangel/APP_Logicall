@@ -1,11 +1,10 @@
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-_s(63p0qv&f6f^+xan!b-v4^9)#vpdcd^vg5w35x=r3z-#+2*-'
-
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
 # Aplicaciones instaladas
@@ -73,31 +72,27 @@ DATABASES = {
 
 # Validadores de contraseña
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 # Config regional
 LANGUAGE_CODE = 'es-cl'
 TIME_ZONE = 'America/Santiago'
-
 USE_I18N = True
 USE_TZ = True
 
 # Archivos estáticos
 STATIC_URL = 'static/'
 
+# Archivos multimedia (para imágenes de productos)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Campo por defecto para claves primarias
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Configuración CORS para desarrollo
+# CORS para desarrollo
 CORS_ALLOW_ALL_ORIGINS = True

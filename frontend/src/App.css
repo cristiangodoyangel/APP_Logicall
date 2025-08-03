@@ -1,5 +1,5 @@
 :root {
-  --color-primario: #073572;
+  --color-primario: #10386b;
   --color-secundario: #5ce1e6;
   --color-terciario: #dddddd;
 }
@@ -64,3 +64,12 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+
+.app-container {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
