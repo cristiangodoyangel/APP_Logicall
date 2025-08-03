@@ -5,6 +5,10 @@ import './App.css';
 import logo from './assets/img/logo.png';
 import ProductosTable from './components/ProductosTable';
 import AgregarProductoModal from './components/AgregarProductoModal';
+import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css';
+import $ from 'jquery';
+import 'datatables.net-bs5';
+
 
 import { useState } from 'react';
 

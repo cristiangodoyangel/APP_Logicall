@@ -83,3 +83,15 @@ html, body {
   background-color: white;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
+
+.table tbody tr:hover {
+  background-color: rgba(92, 225, 230, 0.3) !important; /* var(--color-secundario) con 30% de opacidad */
+}
+
+.tabla-productos tbody tr:hover {
+  background-color: rgba(92, 225, 230, 0.3) !important;
+}
+
+#tabla-productos tbody tr:hover {
+  background-color: rgba(92, 225, 230, 0.3) !important; /* Color secundario con 30% de opacidad */
+}

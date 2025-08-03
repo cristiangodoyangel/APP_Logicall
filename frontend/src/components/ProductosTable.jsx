@@ -12,7 +12,8 @@ function ProductosTable({ recargar }) {
 
   return (
     <div className="table-responsive">
-      <table className="table table-striped table-bordered align-middle">
+      <table className="table tabla-productos table-striped table-bordered align-middle">
+
         <thead className="table-light">
           <tr>
             <th>Nombre Técnico</th>
