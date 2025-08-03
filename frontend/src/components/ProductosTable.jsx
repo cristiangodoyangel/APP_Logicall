@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function ProductosTable() {
+function ProductosTable({ recargar }) {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/productos/')
       .then(response => setProductos(response.data))
       .catch(error => console.error('Error al cargar productos:', error));
-  }, []);
+  }, [recargar]);
 
   return (
     <div className="table-responsive">
@@ -63,3 +63,4 @@ function ProductosTable() {
 }
 
 export default ProductosTable;
+ 

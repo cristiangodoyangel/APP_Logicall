@@ -73,3 +73,13 @@ html, body {
   padding-right: 2rem;
 }
 
+.app-container {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  background-color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}

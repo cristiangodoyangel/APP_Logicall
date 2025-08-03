@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.core.validators import FileExtensionValidator
+import os
 def ruta_imagen_producto(instance, filename):
     return os.path.join('productos', filename)
 
@@ -12,7 +13,12 @@ class Producto(models.Model):
     Marca = models.CharField(max_length=255, null=True, blank=True)
     Descripcion = models.TextField(null=True, blank=True)
 
-    Imagen = models.ImageField(upload_to=ruta_imagen_producto, null=True, blank=True)  # <-- cambio
+    Imagen = models.ImageField(
+    upload_to='imagenes_productos/',
+    null=True,
+    blank=True,
+    validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png', 'gif', 'jfif'])]
+)
 
     Proveedor = models.IntegerField(null=True, blank=True)
     Ubicacion = models.CharField(max_length=255, null=True, blank=True)
