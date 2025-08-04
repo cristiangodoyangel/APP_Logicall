@@ -95,3 +95,23 @@ html, body {
 #tabla-productos tbody tr:hover {
   background-color: rgba(92, 225, 230, 0.3) !important; /* Color secundario con 30% de opacidad */
 }
+
+/* Ajusta la separación entre los botones de paginación de DataTables */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  margin: 0 20px !important;
+  padding: 4px 8px !important;
+}
+
+/* Para DataTables con Bootstrap 5 */
+.dataTables_wrapper .dataTables_paginate .pagination {
+  gap: 20px !important;
+}
+.dataTables_wrapper .dataTables_paginate .pagination > .page-item {
+  margin: 0 !important;
+}
+.dataTables_wrapper .dataTables_paginate .pagination .page-link {
+  padding: 1px 1px !important;
+}
+
+
+

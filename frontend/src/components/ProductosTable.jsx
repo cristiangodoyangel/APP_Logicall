@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import $ from 'jquery';
+import "datatables.net-dt/css/dataTables.dataTables.min.css";
+import 'datatables.net';
+import * as bootstrap from 'bootstrap';
 import AgregarProductoModal from './AgregarProductoModal';
 import EditarProductoModal from './EditarProductoModal';
-import * as bootstrap from 'bootstrap';
 
 function ProductosTable({ recargar }) {
   const [productos, setProductos] = useState([]);
@@ -18,6 +21,21 @@ function ProductosTable({ recargar }) {
   useEffect(() => {
     recargarProductos();
   }, [recargar]);
+
+  useEffect(() => {
+    if (productos.length > 0) {
+      const table = $('#tabla-productos').DataTable({
+        language: {
+          url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
+        }
+      });
+  
+      return () => {
+        table.destroy(); // limpiar instancia previa
+      };
+    }
+  }, [productos]);
+  
 
   const abrirModalEdicion = (producto) => {
     setProductoEditar(producto);
@@ -48,7 +66,7 @@ function ProductosTable({ recargar }) {
   return (
     <>
       <div className="table-responsive">
-        <table className="table tabla-productos table-striped table-bordered align-middle">
+        <table id="tabla-productos" className="display table table-striped table-bordered align-middle">
           <thead className="table-light">
             <tr>
               <th>Nombre Técnico</th>
@@ -71,12 +89,12 @@ function ProductosTable({ recargar }) {
                 <td>{producto.Estado}</td>
                 <td>{producto.Categoria}</td>
                 <td>
-                {producto.Imagen ? (
-                  <img src={producto.Imagen} alt="Imagen Producto" height="40" />
-                ) : (
-                  <span className="text-muted">Sin imagen</span>
-                )}
-              </td>
+                  {producto.Imagen ? (
+                    <img src={producto.Imagen} alt="Imagen Producto" height="40" />
+                  ) : (
+                    <span className="text-muted">Sin imagen</span>
+                  )}
+                </td>
                 <td className="text-center">
                   <button
                     className="btn btn-sm btn-outline-warning me-2"
@@ -105,7 +123,7 @@ function ProductosTable({ recargar }) {
       <AgregarProductoModal onProductoGuardado={recargarProductos} />
       <EditarProductoModal productoEditar={productoEditar} onProductoGuardado={recargarProductos} />
 
-      {/* Modal de Confirmación de Eliminación */}
+      {/* Modal Confirmación Eliminar */}
       <div className="modal fade" id="modalEliminar" tabIndex="-1" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
