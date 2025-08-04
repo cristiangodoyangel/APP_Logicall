@@ -1,19 +1,33 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import AgregarProductoModal from './AgregarProductoModal';
+import EditarProductoModal from './EditarProductoModal'; // nuevo
+import * as bootstrap from 'bootstrap';
+
 
 function ProductosTable({ recargar }) {
   const [productos, setProductos] = useState([]);
+  const [productoEditar, setProductoEditar] = useState(null);
 
-  useEffect(() => {
+  const recargarProductos = () => {
     axios.get('http://127.0.0.1:8000/api/productos/')
       .then(response => setProductos(response.data))
       .catch(error => console.error('Error al cargar productos:', error));
+  };
+
+  useEffect(() => {
+    recargarProductos();
   }, [recargar]);
+
+  const abrirModalEdicion = (producto) => {
+    setProductoEditar(producto);
+    const modal = new bootstrap.Modal(document.getElementById('modalEditar'));
+    modal.show();
+  };
 
   return (
     <div className="table-responsive">
       <table className="table tabla-productos table-striped table-bordered align-middle">
-
         <thead className="table-light">
           <tr>
             <th>Nombre Técnico</th>
@@ -43,7 +57,7 @@ function ProductosTable({ recargar }) {
                 )}
               </td>
               <td className="text-center">
-                <button className="btn btn-sm btn-outline-warning me-2">
+                <button className="btn btn-sm btn-outline-warning me-2" onClick={() => abrirModalEdicion(producto)}>
                   <i className="bi bi-pencil"></i>
                 </button>
                 <button className="btn btn-sm btn-outline-danger">
@@ -59,9 +73,11 @@ function ProductosTable({ recargar }) {
           )}
         </tbody>
       </table>
+
+      <AgregarProductoModal onProductoGuardado={recargarProductos} />
+      <EditarProductoModal productoEditar={productoEditar} onProductoGuardado={recargarProductos} />
     </div>
   );
 }
 
 export default ProductosTable;
- 
