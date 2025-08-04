@@ -25,6 +25,19 @@ function ProductosTable({ recargar }) {
     modal.show();
   };
 
+  const eliminarProducto = async (producto) => {
+    if (!window.confirm(`¿Está seguro que desea eliminar "${producto.NombreTecnico}"?`)) return;
+  
+    try {
+      await axios.delete(`http://localhost:8000/api/productos/${producto.ITEM}/`);
+      recargarProductos();
+    } catch (error) {
+      console.error('Error al eliminar producto:', error.response || error.message);
+      alert('Ocurrió un error al eliminar el producto.');
+    }
+  };
+  
+
   return (
     <div className="table-responsive">
       <table className="table tabla-productos table-striped table-bordered align-middle">
@@ -60,9 +73,13 @@ function ProductosTable({ recargar }) {
                 <button className="btn btn-sm btn-outline-warning me-2" onClick={() => abrirModalEdicion(producto)}>
                   <i className="bi bi-pencil"></i>
                 </button>
-                <button className="btn btn-sm btn-outline-danger">
-                  <i className="bi bi-trash"></i>
-                </button>
+                <button
+  className="btn btn-sm btn-outline-danger"
+  onClick={() => eliminarProducto(producto)}
+>
+  <i className="bi bi-trash"></i>
+</button>
+
               </td>
             </tr>
           ))}
