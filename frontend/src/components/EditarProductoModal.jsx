@@ -67,7 +67,7 @@ function EditarProductoModal({ productoEditar, onProductoGuardado }) {
     <div className="modal fade" id="modalEditar" tabIndex="-1" aria-hidden="true">
       <div className="modal-dialog modal-lg">
         <form onSubmit={handleSubmit} className="modal-content">
-          <div className="modal-header bg-warning text-dark">
+          <div className="modal-header bg-primario text-white">
             <h5 className="modal-title">Editar Producto</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
           </div>
@@ -121,7 +121,7 @@ function EditarProductoModal({ productoEditar, onProductoGuardado }) {
             <button id="cerrarModalEditar" type="button" className="btn btn-secondary" data-bs-dismiss="modal">
               Cancelar
             </button>
-            <button type="submit" className="btn btn-warning">Actualizar</button>
+            <button type="submit" className="btn btn-secundario">Actualizar</button>
           </div>
         </form>
       </div>
